@@ -4,7 +4,7 @@
 
 85% Done
 
-now AddSubject ...
+now edit AddSubject Component...
 
 Webpack Scaffold
 
