@@ -34,21 +34,8 @@ class DropDown extends Component {
 
     render () {
 
-        let filter = this.props.dropDownTextareaValue;
-        let liData =[];
-        let reg = new RegExp(filter, 'g');
-        if (!filter) {
-            liData = this.props.subjectList;
-        } else {
-            // this.subjects.map(function (v) {
-            //     if (v.all.search(reg) !== -1 ) {
-            //         liData.push(v);
-            //     }
-            // })
-            liData = this.props.subjectList.filter(function (val) {
-                return reg.test(val.all)
-            });
-        }
+        let liData = this.props.subjectList;
+
 
         return (
             <div
@@ -69,7 +56,7 @@ class DropDown extends Component {
                     <ul
                         ref={(wrapper) => { this.wrapper = wrapper; }}
                     >
-                        {   (filter && !liData.length ) ?
+                        {   ( !liData.length ) ?
                             '没有匹配的数据'
                             :
                             liData.map((v, i)=> <li
