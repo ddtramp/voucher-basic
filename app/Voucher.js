@@ -50,18 +50,19 @@ class Voucher extends Component{
                 accessoryFocus: false
             },
             subjects: [ ],              // 凭证信息
-            zdr: {
+            zdr: {                      // Todo Async get data
                 id: '123321',
                 name: 'jack wang'
             },
-            subjectList: [],
+            subjectList: [],            // 初始化后的 科目表
+            CurrentSubjectList: [],     // 当前的科目表
             total: {
                 jfje: null,
                 dfje: null,
                 capital: null
             },
             currentEdit: {
-                index: this.props.currentEdit
+                index: this.props.currentEdit   // ⇓ 选择科目时， 当前的 index
             },
 
             editAble: defaultEditable,      // 设置是否可编辑
@@ -165,6 +166,7 @@ class Voucher extends Component{
                 .then(d => {
                     this.setState({
                         subjectList: d,
+                        CurrentSubjectList: d,
                         dropDownLength: d.length
                     });
 
@@ -177,10 +179,6 @@ class Voucher extends Component{
      * 获取所有科目列表
      * @returns {Array}
      */
-    getAllSubject () {
-
-        return [];
-    }
     _topNoFocus (e) {
         this.setState(function (prevState, props) {
             var voucherInfo = {};
@@ -379,9 +377,23 @@ class Voucher extends Component{
         });
     }
     _kjkmEditTextareaChange (e) {
-        console.log('textarea value change: ' + e.target.value);
+        // Todo
+        console.log('textarea value change: ' + val);
+        let val = e.target.value;
+        let reg = new RegExp( val, 'g');
+        let liData = [];
+        if (!val) {
+            liData = this.state.subjectList;
+        } else {
+            liData = this.state.subjectList.filter(function (val) {
+                return reg.test(val.all)
+            });
+        }
         this.setState({
-            dropDownTextareaValue: e.target.value
+            dropDownTextareaValue: val,
+            CurrentSubjectList: liData,
+            dropDownLength: liData.length
+
         });
 
     }
@@ -395,7 +407,8 @@ class Voucher extends Component{
                     selectArea: true
                 },
                 dropDownTextareaValue: '',
-                dropDownCurrentIndex: 0
+                dropDownCurrentIndex: 0,
+                CurrentSubjectList: prevState.subjectList
         }
         });
     }
@@ -429,8 +442,8 @@ class Voucher extends Component{
                 let subjects = prevState.subjects.slice(0);
                 subjects[index].isJfInputShow = true;
                 subjects[index].isDfInputShow = false;
-                subjects[index].subject = _this.subjects[_this.state.dropDownCurrentIndex].subject;
-                subjects[index].name = _this.subjects[_this.state.dropDownCurrentIndex].name;;
+                subjects[index].subject = prevState.subjectList[_this.state.dropDownCurrentIndex].subject;
+                subjects[index].name = prevState.subjectList[_this.state.dropDownCurrentIndex].name;;
 
                 return {
                     subjects: subjects,
@@ -797,7 +810,7 @@ class Voucher extends Component{
 
                 <DropDown
                     ref="DropDown"
-                    subjectList = { this.state.subjectList }
+                    subjectList = { this.state.CurrentSubjectList }
                     currentIndex= { this.state.currentEdit.index }
                     DropDownShow={ this.state.DropDownShow }
                     dropDownCurrentIndex = { this.state.dropDownCurrentIndex }
