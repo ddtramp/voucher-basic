@@ -2,6 +2,8 @@
 ----
 ## 说明
 
+[Document](https://ddtramp.gitbooks.io/gitbook-voucher-basic/content/)
+
 85% Done
 
 now edit AddSubject Component...
