@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
-import DropDown from '../app/lib/DropDown/DropDown';
+import DropDown from '../../app/lib/DropDown/DropDown';
 
 const props = {
     ref: "DropDown",
