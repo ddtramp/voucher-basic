@@ -1,18 +1,17 @@
 /**
  * Created by wangxichao on 21/03/2017.
  */
-
+/*eslint-disable*/
 import React, { Component } from 'react';
 
 import style from './Loading.css';
-
+/*eslint-enable*/
 class Loading extends Component {
-
     render () {
         let className = [
-                style.loading,
-                (this.props.loading ? '' : style.hidden )
-            ];
+            style.loading,
+            (this.props.loading ? '' : style.hidden)
+        ]
 
         return (
             <div className= { className.join(' ') }>
@@ -24,5 +23,4 @@ class Loading extends Component {
     }
 }
 
-
-export default Loading;
+export default Loading

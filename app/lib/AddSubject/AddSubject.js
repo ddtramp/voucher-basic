@@ -1,10 +1,11 @@
 /**
  * Created by wangxichao on 21/03/2017.
  */
+/*eslint-disable*/
 import React , { Component } from 'react';
 
 import style from './AddSubject.css';
-
+/*eslint-enable*/
 
 class AddSubject extends Component {
     // todo not done
@@ -16,9 +17,6 @@ class AddSubject extends Component {
             </div>
         )
     }
-
-
 }
-
 
 export default AddSubject

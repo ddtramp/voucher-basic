@@ -1,13 +1,14 @@
-//index.js
+// index.js
+/*eslint-disable*/
 import React from 'react';
 import {render} from 'react-dom';
 import Voucher from './Voucher';
-
+/*eslint-enable*/
 render(<Voucher
     currentEdit="0"
     subjectsUrl="static/data/subjects.json"
 
-/>, document.getElementById('root') );
+/>, document.getElementById('root'))
 
 // isZyEditAble= { true }       // 摘要字段是否可以编辑
 // isKjkmEditAble= { true }     // 会计科目字段是否可以编辑

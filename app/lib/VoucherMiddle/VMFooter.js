@@ -1,28 +1,25 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
-
+/*eslint-disable*/
 import React , { Component } from 'react';
 import Je from './Je';
 
 import style from './VoucherMiddle.css';
-
-
+/*eslint-enable*/
 class VMFooter extends Component {
-
-    render() {
-
+    render () {
         return (
             <div className={ style.footer }>
                 <table>
                     <tbody>
-                    <tr  >
+                    <tr>
                         <td colSpan="2" className={ style.zy }>
                             <div className={ style.footerLeft }>
                                 <p><span>合计：</span><span>{ this.props.total.capital }</span></p>
                             </div>
                         </td>
-                        <td  className={ style.je }>
+                        <td className={ style.je }>
                             <Je
                                 ref="je"
                                 je={ this.props.total.jfje }
@@ -30,7 +27,7 @@ class VMFooter extends Component {
                                 editAble = { false }
                             ></Je>
                         </td>
-                        <td  className= { style.je }>
+                        <td className= { style.je }>
                             <Je
                                 ref="je"
                                 je={ this.props.total.dfje }
@@ -45,7 +42,6 @@ class VMFooter extends Component {
             </div>
         )
     }
-
 }
 
 export default VMFooter

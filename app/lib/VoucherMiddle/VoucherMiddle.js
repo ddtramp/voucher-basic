@@ -1,7 +1,7 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
-
+/*eslint-disable*/
 import React , { Component } from 'react';
 import VMHeader from './VMHeader';
 import VMBody from './VMBody';
@@ -9,11 +9,9 @@ import VMFooter from './VMFooter';
 
 
 import style from './VoucherMiddle.css';
-
+/*eslint-enable*/
 class VoucherMiddle extends Component {
-
-    render() {
-
+    render () {
         return (
             <div className={style.voucher}>
                 <VMHeader></VMHeader>
@@ -47,7 +45,6 @@ class VoucherMiddle extends Component {
             </div>
         )
     }
-
 }
 
 export default VoucherMiddle

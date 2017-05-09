@@ -1,17 +1,17 @@
 /**
  * Created by wangxichao on 21/03/2017.
  */
+/*eslint-disable*/
 import React, { Component } from 'react';
 
 import style from './UnderWrapper.css';
-
+/*eslint-enable*/
 class UnderWrapper extends Component {
-
     render () {
         let className = [
             style.wrapper,
-            ( this.props.underWrapper ?  '' : style.hidden )
-        ];
+            (this.props.underWrapper ? '' : style.hidden)
+        ]
 
         return (
             <div
@@ -21,8 +21,6 @@ class UnderWrapper extends Component {
             </div>
         )
     }
-
-
 }
 
-export default UnderWrapper;
+export default UnderWrapper

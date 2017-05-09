@@ -1,16 +1,15 @@
 /**
  * Created by wangxichao on 08/03/2017.
  */
+/*eslint-disable*/
 import React, { Component } from 'react';
 import Je from './Je';
 import style from './VoucherMiddle.css';
-
+/*eslint-enable*/
 class VMBTRJfje extends Component {
-
     render () {
-
         return (
-            <td  className={ style.je }>
+            <td className={ style.je }>
                 <Je
                     ref="je"
                     je={ this.props.je }
@@ -30,4 +29,4 @@ class VMBTRJfje extends Component {
     }
 }
 
-export default VMBTRJfje;
+export default VMBTRJfje

@@ -1,14 +1,12 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
-
+/*eslint-disable*/
 import React , { Component } from 'react';
 import style from './VoucherMiddle.css';
-
+/*esliny-enable*/
 class VMHeader extends Component {
-
-    render() {
-
+    render () {
         return (
             <div className={ style.header }>
                 <table>
@@ -102,7 +100,6 @@ class VMHeader extends Component {
             </div>
         )
     }
-
 }
 
 export default VMHeader

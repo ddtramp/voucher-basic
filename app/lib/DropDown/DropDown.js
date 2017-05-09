@@ -1,31 +1,29 @@
 /**
  * Created by wangxichao on 21/03/2017.
  */
-import React, { Component } from 'react';
+/*eslint-disable*/
+import React, { Component } from 'react'
 
-import style from './DropDown.css';//导入
-
+import style from './DropDown.css' // 导入
+/*eslint-enable*/
 
 class DropDown extends Component {
-    constructor(props) {
-        super(props);
+    constructor (props) {
+        super(props)
         this.state = {
             filter: null
-        };
-
-        this._newSubjectClick = this._newSubjectClick.bind(this);
+        }
+        this._newSubjectClick = this._newSubjectClick.bind(this)
     }
 
-
-    componentWillMount() {
+    componentWillMount () {
 
     }
 
     componentDidUpdate () {
         if (this.props.DropDownShow.all) {
-            this.textAreaInput.focus();
+            this.textAreaInput.focus()
         }
-
     }
 
     _newSubjectClick (e) {
@@ -33,33 +31,29 @@ class DropDown extends Component {
     }
 
     render () {
-
-        let liData = this.props.subjectList;
-
-
+        let liData = this.props.subjectList
         return (
             <div
-                className={ style.kjkmEdit  + ' '+  ( this.props.DropDownShow.all ? '' : style.hidden ) }
+                className={ style.kjkmEdit + ' ' + (this.props.DropDownShow.all ? '' : style.hidden) }
                 style={ this.props.KjkmPositionStyles }
             >
                 <textarea
                     data-currentindex={ this.props.currentIndex }
-                    ref={(textAreaInput) => { this.textAreaInput = textAreaInput; }}
+                    ref={(textAreaInput) => { this.textAreaInput = textAreaInput }}
                     value={this.props.dropDownTextareaValue}
                     onBlur={ this.props._kjkmEditTextareaBlur }
                     onChange={ this.props._kjkmEditTextareaChange}
                     onKeyDown = { this.props._kjkmEditTextareaKeydown }
 
-
                 />
-                <div  className={ style.dropdown }  >
+                <div className={ style.dropdown } >
                     <ul
-                        ref={(wrapper) => { this.wrapper = wrapper; }}
+                        ref={(wrapper) => { this.wrapper = wrapper }}
                     >
-                        {   ( !liData.length ) ?
+                        {   (!liData.length) ? // eslint-disable-line
                             '没有匹配的数据'
-                            :
-                            liData.map((v, i)=> <li
+                            : // eslint-disable-line
+                            liData.map((v, i) => <li
                                 key={ v.id }
                                 data-subjectindex = {i}
                                 data-subject={ v.subject }
@@ -78,5 +72,4 @@ class DropDown extends Component {
     }
 }
 
-
-export default  DropDown;
+export default DropDown

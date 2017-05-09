@@ -1,6 +1,7 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
+/*eslint-disable*/
 import React, { Component } from 'react';
 
 import VTNumber from './VTNumber';
@@ -8,11 +9,9 @@ import VTDate from './VTDate';
 import VTAccessory from './VTAccessory';
 
 import style from './VoucherTop.css';
-
+/*eslint-enable*/
 class VoucherTop extends Component {
-
-    render() {
-
+    render () {
         return (
             <div className={style.outside}>
                 <VTNumber
@@ -40,7 +39,6 @@ class VoucherTop extends Component {
             </div>
         )
     }
-
 }
 
-export  default VoucherTop
+export default VoucherTop

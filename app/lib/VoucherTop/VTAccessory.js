@@ -1,14 +1,13 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
-import React, { Component } from 'react';
-import VTAInput from './VTAInput';
-import style from './VoucherTop.css';
-
+/*eslint-disable*/
+import React, { Component } from 'react'
+import VTAInput from './VTAInput'
+import style from './VoucherTop.css'
+/*eslint-enable*/
 class VTAccessory extends Component {
-
-    render() {
-
+    render () {
         return (
             <div className={style.accessory}>
                 附单据 &nbsp;

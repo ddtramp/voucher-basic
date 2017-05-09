@@ -1,17 +1,16 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
-
+/*eslint-disable*/
 import React , { Component } from 'react';
 
 import style from './VoucherBottom.css';
-
+/*eslint-enable*/
 class VoucherBottom extends Component {
-
     render () {
         var buttonClassName = [
-            ( this.props.isValid ? style.buttonActive : '' )
-        ];
+            (this.props.isValid ? style.buttonActive : '')
+        ]
 
         return (
             <div className={ style.bottom }>

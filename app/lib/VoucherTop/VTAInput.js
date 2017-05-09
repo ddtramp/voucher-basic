@@ -1,16 +1,16 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
-import React, { Component } from 'react';
-import style from './VoucherTop.css';
-
+/*eslint-disable*/
+import React, { Component } from 'react'
+import style from './VoucherTop.css'
+/*eslint-enable*/
 class VTAInput extends Component {
-
-    render() {
-        var className  = [
+    render () {
+        let className = [
             style.inputStyle,
-            ( this.props.focus ) ?  style.inputStyleFocused : ''
-        ];
+            (this.props.focus) ? style.inputStyleFocused : ''
+        ]
         return (
             <div className={ className.join(' ') }>
                 <input

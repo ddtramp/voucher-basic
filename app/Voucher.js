@@ -1,4 +1,5 @@
 // Greeter,js
+/*eslint-disable*/
 import React, {Component} from 'react'
 import moment from 'moment'
 import VoucherTop from './lib/VoucherTop/VoucherTop'
@@ -10,6 +11,7 @@ import Loading from './lib/Loading/Loading'
 import AddSubject from './lib/AddSubject/AddSubject'
 import subjectList from '../static/data/subjects.json'
 import style from './Voucher.css'// 导入
+/*eslint-enable*/
 
 class Voucher extends Component {
     constructor (props) {
@@ -28,7 +30,7 @@ class Voucher extends Component {
             isDfInputShow: false       // { String | Number }
         }
 
-        var defaultEditable = {
+        let defaultEditable = {
             currentEdit: -1,
             isZyEditAble: true,
             isKjkmEditAble: true,
@@ -37,7 +39,7 @@ class Voucher extends Component {
         }
         Object.assign(defaultEditable, props)
 
-        var state = {
+        let state = {
             voucherInfo: {
                 No: '',
                 NoFocus: false,
@@ -118,8 +120,8 @@ class Voucher extends Component {
 
         this.getVoucherSubjectsList() // get and update subject list
 
-        var defauleSubjects = []
-        var firstRow = Object.assign({}, this.defaultSubject)
+        let defauleSubjects = []
+        let firstRow = Object.assign({}, this.defaultSubject)
         firstRow.zyTextareaShow = false
         firstRow.subject = '1001'
         firstRow.name = '银行存款'
@@ -151,7 +153,7 @@ class Voucher extends Component {
                         console.log('Fetch subjects ok')
                         return response.json()
                     } else {
-                        new Error('Fetch status false')
+                        new Error('Fetch status false') // eslint-disable-line
                     }
                 })
                 .then(d => {
@@ -171,7 +173,7 @@ class Voucher extends Component {
      */
     _topNoFocus (e) {
         this.setState(function (prevState, props) {
-            var voucherInfo = {}
+            let voucherInfo = {}
             Object.assign(voucherInfo, prevState.voucherInfo)
             voucherInfo.NoFocus = true
 
@@ -180,7 +182,7 @@ class Voucher extends Component {
     }
     _topNoBlur (e) {
         this.setState(function (prevState, props) {
-            var voucherInfo = {}
+            let voucherInfo = {}
             Object.assign(voucherInfo, prevState.voucherInfo)
             voucherInfo.NoFocus = false
 
@@ -188,12 +190,12 @@ class Voucher extends Component {
         })
     }
     _topNoChange (e) {
-        var v = e.target.value
-        var reg = /^\d{0,3}$/
+        let v = e.target.value
+        let reg = /^\d{0,3}$/
 
         if (reg.test(v)) {
             this.setState(function (prevState, props) {
-                var voucherInfo = {}
+                let voucherInfo = {}
                 Object.assign(voucherInfo, prevState.voucherInfo)
                 voucherInfo.No = v
                 return {
@@ -204,7 +206,7 @@ class Voucher extends Component {
     }
     _topDateChange (s, v) {
         this.setState(function (prevState, props) {
-            var voucherInfo = {}
+            let voucherInfo = {}
             Object.assign(voucherInfo, prevState.voucherInfo)
             voucherInfo.date = v.dateMoment.valueOf()
             return {
@@ -214,7 +216,7 @@ class Voucher extends Component {
     }
     _topAccessoryFocus (e) {
         this.setState(function (prevState, props) {
-            var voucherInfo = {}
+            let voucherInfo = {}
             Object.assign(voucherInfo, prevState.voucherInfo)
             voucherInfo.accessoryFocus = true
 
@@ -223,7 +225,7 @@ class Voucher extends Component {
     }
     _topAccessoryBlur (e) {
         this.setState(function (prevState, props) {
-            var voucherInfo = {}
+            let voucherInfo = {}
             Object.assign(voucherInfo, prevState.voucherInfo)
             voucherInfo.accessoryFocus = false
 
@@ -231,12 +233,12 @@ class Voucher extends Component {
         })
     }
     _topAccessoryChange (e) {
-        var v = e.target.value
-        var reg = /^\d{0,4}$/
+        let v = e.target.value
+        let reg = /^\d{0,4}$/
 
         if (reg.test(v)) {
             this.setState(function (prevState, props) {
-                var voucherInfo = {}
+                let voucherInfo = {}
                 Object.assign(voucherInfo, prevState.voucherInfo)
                 voucherInfo.accessory = v
                 return {
@@ -246,11 +248,11 @@ class Voucher extends Component {
         }
     }
     _voucherBodyScroll (e) {
-        var index = this.state.currentEdit.index
-        var scrollDiv = this.refs.VoucherMiddle.refs.VMBody.refs.scrollDiv
+        let index = this.state.currentEdit.index
+        let scrollDiv = this.refs.VoucherMiddle.refs.VMBody.refs.scrollDiv
 
         if (this.state.DropDownShow.all && this.state.currentEdit.index) {
-            var distance = (parseInt(this.state.currentEdit.index) * 61)
+            let distance = (parseInt(this.state.currentEdit.index) * 61)
 
             if (scrollDiv.scrollTop > distance || (scrollDiv.scrollTop < (parseInt(index) + 1 - 4) * 61)) {
                 this.setState(function (prevState, props) {
@@ -282,7 +284,7 @@ class Voucher extends Component {
         }
     }
     _zyTextClick (e) {
-        var index = e.target.getAttribute('data-currentindex')
+        let index = e.target.getAttribute('data-currentindex')
         this.setState(function (prevState, props) {
             let subjects = prevState.subjects.slice(0)
 
@@ -294,8 +296,8 @@ class Voucher extends Component {
         })
     }
     _zyEditTextareaChange (e) {
-        var value = this.state.summary = e.target.value
-        var index = e.target.getAttribute('data-currentindex')
+        let value = this.state.summary = e.target.value
+        let index = e.target.getAttribute('data-currentindex')
         this.setState(function (prevState, props) {
             let subjects = prevState.subjects.slice(0)
             subjects[index].summary = value
@@ -307,9 +309,9 @@ class Voucher extends Component {
         if (e.keyCode === 9 || e.keyCode === 13) {
             e.stopPropagation()
             e.preventDefault()
-            var offsetTop = e.target.offsetTop
-            var offsetLeft = e.target.offsetLeft
-            var scrollDiv = this.refs.VoucherMiddle.refs.VMBody.refs.scrollDiv
+            let offsetTop = e.target.offsetTop
+            let offsetLeft = e.target.offsetLeft
+            let scrollDiv = this.refs.VoucherMiddle.refs.VMBody.refs.scrollDiv
 
             this.setState(function (prevState, props) {
                 return {
@@ -327,7 +329,7 @@ class Voucher extends Component {
         }
     }
     _zyEditTextareaBlur (e) {
-        var index = e.target.getAttribute('data-currentindex')
+        let index = e.target.getAttribute('data-currentindex')
         this.setState(function (prevState, props) {
             let subjects = prevState.subjects.slice(0)
             subjects[index].zyTextareaShow = false
@@ -337,12 +339,12 @@ class Voucher extends Component {
         })
     }
     _kjkmTextClick (e) {
-        var _this = this
-        var index = e.target.getAttribute('data-currentindex')
-        var scrollDiv = this.refs.VoucherMiddle.refs.VMBody.refs.scrollDiv
+        let _this = this
+        let index = e.target.getAttribute('data-currentindex')
+        let scrollDiv = this.refs.VoucherMiddle.refs.VMBody.refs.scrollDiv
 
-        var offsetTop = e.target.offsetTop
-        var offsetLeft = e.target.offsetLeft
+        let offsetTop = e.target.offsetTop
+        let offsetLeft = e.target.offsetLeft
         _this.setState(function (prevState, props) {
             return {
                 DropDownShow: {
@@ -392,8 +394,8 @@ class Voucher extends Component {
         })
     }
     _kjkmEditTextareaKeydown (e) {
-        var index
-        var wrapper
+        let index
+        let wrapper
         if (e.keyCode === 9) {
             e.stopPropagation()
             e.preventDefault()
@@ -417,7 +419,7 @@ class Voucher extends Component {
         if (e.keyCode === 13) {
             e.stopPropagation()
             e.preventDefault()
-            var _this = this
+            let _this = this
             index = e.target.getAttribute('data-currentindex')
             this.setState(function (prevState, props) {
                 let subjects = prevState.subjects.slice(0)
@@ -471,9 +473,9 @@ class Voucher extends Component {
         }
     }
     _liOnMouseDown (e) {
-        var index = this.state.currentEdit.index   // 当前的 tr index
-        var subject = e.target.getAttribute('data-subject')
-        var name = e.target.getAttribute('data-subjectname')
+        let index = this.state.currentEdit.index   // 当前的 tr index
+        let subject = e.target.getAttribute('data-subject')
+        let name = e.target.getAttribute('data-subjectname')
         this.refs.DropDown.wrapper.scrollTop = 0   // set to top
 
         this.setState(function (prevState, props) {
@@ -498,15 +500,15 @@ class Voucher extends Component {
      * @returns {string}
      */
     DX (num) {
-        var strOutput = ''
-        var strUnit = '仟佰拾亿仟佰拾万仟佰拾元角分'
+        let strOutput = ''
+        let strUnit = '仟佰拾亿仟佰拾万仟佰拾元角分'
         num += '00'
-        var intPos = num.indexOf('.')
+        let intPos = num.indexOf('.')
         if (intPos >= 0) {
             num = num.substring(0, intPos) + num.substr(intPos + 1, 2)
         }
         strUnit = strUnit.substr(strUnit.length - num.length)
-        for (var i = 0; i < num.length; i++) {
+        for (let i = 0; i < num.length; i++) {
             strOutput += '零壹贰叁肆伍陆柒捌玖'.substr(num.substr(i, 1), 1) + strUnit.substr(i, 1)
         }
         return strOutput.replace(/零角零分$/, '整').replace(/零[仟佰拾]/g, '零').replace(/零{2,}/g, '零').replace(/零([亿|万])/g, '$1').replace(/零+元/, '元').replace(/亿零{0,3}万/, '亿').replace(/^元/, '零元')
@@ -527,7 +529,7 @@ class Voucher extends Component {
         return total
     }
     countTotal (subjects) {
-        var total = {
+        let total = {
             jfje: 0,
             dfje: 0,
             capital: null
@@ -541,8 +543,8 @@ class Voucher extends Component {
     }
 
     _jeUlClick (e) {
-        var direction = e.currentTarget.getAttribute('direction')
-        var index = e.currentTarget.getAttribute('data-currentindex')
+        let direction = e.currentTarget.getAttribute('direction')
+        let index = e.currentTarget.getAttribute('data-currentindex')
 
         if (direction - 0) { // 贷方
             this.setState(function (prevState, props) {
@@ -579,11 +581,11 @@ class Voucher extends Component {
         }
     }
     _jeInputChange (e) {
-        var v = e.target.value
-        var direction = e.target.getAttribute('direction')
-        var regNumber = /^\d{0,9}(\.\d{0,2})?$/g   // 验证{0-9}.{0-2}数字
-        var index = e.target.getAttribute('data-currentindex')
-        var _this = this
+        let v = e.target.value
+        let direction = e.target.getAttribute('direction')
+        let regNumber = /^\d{0,9}(\.\d{0,2})?$/g   // 验证{0-9}.{0-2}数字
+        let index = e.target.getAttribute('data-currentindex')
+        let _this = this
         this.setState(function (prevState, props) {
             let subjects = prevState.subjects.slice(0)
 
@@ -611,8 +613,8 @@ class Voucher extends Component {
      * @private
      */
     _jeInputOnBlur (e) {
-        var direction = e.currentTarget.getAttribute('direction')
-        var index = e.currentTarget.getAttribute('data-currentindex')
+        let direction = e.currentTarget.getAttribute('direction')
+        let index = e.currentTarget.getAttribute('data-currentindex')
         if (direction - 0) { // 贷方
             this.setState(function (prevState, props) {
                 let subjects = prevState.subjects.slice(0)
@@ -635,8 +637,8 @@ class Voucher extends Component {
         if (e.keyCode === 9 || e.keyCode === 13) {
             e.stopPropagation()
             e.preventDefault()
-            var index = e.target.getAttribute('data-currentindex')
-            var direction = e.target.getAttribute('direction')
+            let index = e.target.getAttribute('data-currentindex')
+            let direction = e.target.getAttribute('direction')
             if (direction === '1') {
                 if ((this.state.subjects.length - 1) === parseInt(index)) {
                     return false
@@ -674,8 +676,8 @@ class Voucher extends Component {
         }
     }
     _addTr (e) {
-        var index = e.target.getAttribute('data-currentindex')
-        var _this = this
+        let index = e.target.getAttribute('data-currentindex')
+        let _this = this
 
         this.setState(function (prevState, props) {
             let subjects = prevState.subjects.slice(0)
@@ -690,8 +692,8 @@ class Voucher extends Component {
         })
     }
     _delTr (e) {
-        var index = e.target.getAttribute('data-currentindex')
-        var _this = this
+        let index = e.target.getAttribute('data-currentindex')
+        let _this = this
         this.setState(function (prevState, props) {
             let subjects = prevState.subjects.slice(0)
             subjects.splice(index, 1)
@@ -788,7 +790,7 @@ class Voucher extends Component {
                     _liOnMouseDown = { this._liOnMouseDown }
                     KjkmPositionStyles = { this.state.KjkmPositionStyles }
 
-                ></DropDown>
+                />
                 <UnderWrapper
                     underWrapper = { this.state.underWrapper }
                     _underWrapperClick = { this._underWrapperClick }

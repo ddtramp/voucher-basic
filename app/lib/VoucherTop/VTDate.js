@@ -1,28 +1,24 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
+/*eslint-disable*/
 import React, { Component } from 'react';
 import { DateField, DatePicker, MonthView } from 'react-date-picker'
-
-
 import style from './VoucherTop.css';
 require('react-date-picker/index.css') ;
 require('./../../reset.css');
-
+/*eslint-enable*/
 class VTDate extends Component {
-
     renderDay (v, i) {
-
         // customer day
         // children
         // className
 
         if (v.children) {
-            console.log('Render Day');
+            console.log('Render Day')
         }
     }
-    render() {
-
+    render () {
         return (
             <div className={ style.date }>
                  日期：

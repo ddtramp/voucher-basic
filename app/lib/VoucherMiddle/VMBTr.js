@@ -1,6 +1,7 @@
 /**
  * Created by wangxichao on 08/03/2017.
  */
+/*eslint-disable*/
 import React, { Component } from 'react';
 import VMBTRZy from './VMBTRZy';
 import VMBTRKjkm from './VMBTRKjkm';
@@ -8,28 +9,23 @@ import VMBTRJfje from './VMBTRJfje';
 import VMBTRDfje from './VMBTRDfje';
 
 import style from './VoucherMiddle.css';
-
+/*eslint-enable*/
 class VMBTr extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props)
-
-        var _state = {
+        let _state = {
             direction: null,
-
             isActionShow: false    // 摘要 area 是否显示 添加； 贷方金额是否显示 删除
-        };
-        this.state = _state; // set state
+        }
+        this.state = _state // set state
 
-
-        this._trMouseEnter = this._trMouseEnter.bind(this);
-        this._trMouseLeave = this._trMouseLeave.bind(this);
-
+        this._trMouseEnter = this._trMouseEnter.bind(this)
+        this._trMouseLeave = this._trMouseLeave.bind(this)
     }
-
     componentDidUpdate () {
-        var _this = this;
+        var _this = this
         if (this.props.event === 'change') {
-          return;
+            return
         }
 
         if (this.props.subject.isJfInputShow) {
@@ -46,18 +42,15 @@ class VMBTr extends Component {
         }
     }
     _trMouseEnter () {
-        this.setState({ isActionShow: true });
+        this.setState({ isActionShow: true })
     }
     _trMouseLeave () {
-        this.setState({ isActionShow: false });
+        this.setState({ isActionShow: false })
     }
-
-    render() {
-
+    render () {
         var actionAddClassName = [
-            (this.state.isActionShow ? '' : style.hidden ),
-
-        ];
+            (this.state.isActionShow ? '' : style.hidden)
+        ]
 
         return (
             <tr onMouseEnter={this._trMouseEnter} onMouseLeave={this._trMouseLeave}>
@@ -138,7 +131,6 @@ class VMBTr extends Component {
             </tr>
         )
     }
-
 }
 
-export default VMBTr;
+export default VMBTr

@@ -1,17 +1,14 @@
 /**
  * Created by wangxichao on 07/03/2017.
  */
-
+/*eslint-disable*/
 import React , { Component } from 'react';
 import VMBTr from './VMBTr';
 import style from './VoucherMiddle.css';
-
+/*eslint-enable*/
 class VMBody extends Component {
-
-
-
-    render() {
-        var tem = [];
+    render () {
+        var tem = []
 
         for (let i = 0; i < this.props.subjects.length; i++) {
             tem.push(<VMBTr
@@ -36,7 +33,7 @@ class VMBody extends Component {
                 _jeUlClick={this.props._jeUlClick}
                 _jeInputKeyDown={ this.props._jeInputKeyDown }
 
-            ></VMBTr>);
+            ></VMBTr>)
         }
 
         return (
@@ -53,7 +50,6 @@ class VMBody extends Component {
             </div>
         )
     }
-
 }
 
 export default VMBody
